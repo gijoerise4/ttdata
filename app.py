@@ -36,12 +36,12 @@ def get_follower_count(user):
         return {"error": str(e)}
 
 @app.route('/u1-follower-count', methods=['GET'])
-def follower_count():
+def follower_count_1():
     """Endpoint to return follower count as JSON"""
     return jsonify(get_follower_count("dux.a_"))
 
 @app.route('/u2-follower-count', methods=['GET'])
-def follower_count():
+def follower_count_2():
     """Endpoint to return follower count as JSON"""
     return jsonify(get_follower_count("absurd.cafe"))
 
