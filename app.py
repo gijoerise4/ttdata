@@ -27,7 +27,7 @@ def get_follower_count():
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             user_data = response.json().get('userData', [])[0]
-            return {"number": user_data['stats']['followers']}
+            return {"followers": user_data['stats']['followers']}
         else:
             return {"error": "Failed to fetch data", "status_code": response.status_code}
     except (KeyError, IndexError):
