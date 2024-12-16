@@ -3,8 +3,8 @@ import requests
 
 app = Flask(__name__)
 
-def get_follower_count():
-    url = "https://tiktok.livecounts.io/user/search/dux.a_"
+def get_follower_count(user):
+    url = f"https://tiktok.livecounts.io/user/search/{user}"
     headers = {
         'accept': '*/*',
         'accept-language': 'en-US,en;q=0.9',
@@ -38,7 +38,12 @@ def get_follower_count():
 @app.route('/u1-follower-count', methods=['GET'])
 def follower_count():
     """Endpoint to return follower count as JSON"""
-    return jsonify(get_follower_count())
+    return jsonify(get_follower_count("dux.a_"))
+
+@app.route('/u2-follower-count', methods=['GET'])
+def follower_count():
+    """Endpoint to return follower count as JSON"""
+    return jsonify(get_follower_count("absurd.cafe"))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=False)
